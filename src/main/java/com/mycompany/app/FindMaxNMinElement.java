@@ -14,15 +14,17 @@ public class FindMaxNMinElement {
         }
         return MaxMinEl.builder().maxEl(maxEl).minEl(minEl).build();
     }
+
     public static void main(String[] args) {
         int[] a = {2, 1, -2, 4, 5, 0, 3};
         System.out.println(get(a));
     }
 }
+
 @Builder
 @AllArgsConstructor
 @ToString
-class MaxMinEl{
+class MaxMinEl {
     private int minEl;
     private int maxEl;
 }
