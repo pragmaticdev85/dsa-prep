@@ -1,6 +1,8 @@
 package algo.examples.fastnslowpointers;
 
-public class FindingMiddleNodeInLinkedList {
+import java.util.List;
+
+public class InsertNodeAtMiddleInLinkedList {
     public static void main(String[] args) {
         ListNode oneNode = new ListNode(1);
         ListNode twoNode = new ListNode(2);
@@ -17,18 +19,23 @@ public class FindingMiddleNodeInLinkedList {
         oneNode.next.next.next.next = fiveNode;
         oneNode.next.next.next.next.next = sixNode;
         oneNode.next.next.next.next.next.next = sevenNode;
+        oneNode.next.next.next.next.next.next.next = eightNode;
 
-        ListNode middleNode = findMiddleNode(oneNode);
-        System.out.println("Middle node: " + middleNode.val);
+        ListNode nineNode = new ListNode(9);
+        System.out.format("Before inserting [9] in the middle, the linked list: %s%n", oneNode.toString());
+        insertAtMiddle(oneNode, nineNode);
+        System.out.format("After inserting [9] in the middle, the linked list: %s%n", oneNode.toString());
+        System.out.println("Middle node: " + FindingMiddleNodeInLinkedList.findMiddleNode(oneNode).val);
     }
 
-    public static ListNode findMiddleNode(ListNode oneNode) {
+    private static void insertAtMiddle(ListNode oneNode, ListNode nineNode) {
         ListNode slow = oneNode;
         ListNode fast = oneNode.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        return slow;
+        nineNode.next = slow.next;
+        slow.next = nineNode;
     }
 }
