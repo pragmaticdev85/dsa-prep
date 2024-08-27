@@ -1,0 +1,23 @@
+Question 2.
+
+Write a program to implement Boggle Game.
+You are given a 4x4 matrix of letters and a dictionary, find all the valid words in the matrix. Following are the conditions
+
+1. If a letter is used, it should not be used again in the same word search
+2. The word path can be of any direction, 8 possible directions
+3. There has to be a path of the letters forming the word (in other words all the letters in the word must have to be adjacent to one another)
+
+ Example 4x4 matrix :
+
+ dictionary[] = { DATA, HALO, HALT, SAG, BEAT, TOTAL, GLOT, DAG, DOG};
+
+	D A T H
+	C G O A
+	S A T L
+	B E D G
+Some of the Valid words are:
+DATA, HALO, HALT, SAG, BEAT, TOTAL, GLOT, DAG
+
+Not valid words:
+DAGCD ( D cannot be used again)
+DOG ( There is no path between letters)
