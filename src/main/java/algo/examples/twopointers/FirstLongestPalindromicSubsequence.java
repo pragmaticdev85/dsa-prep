@@ -14,21 +14,21 @@ public class FirstLongestPalindromicSubsequence {
     }
 
     public static void main(String[] args) {
-        final String input = "abcdefkjada";
-        int fPtr = 0;
-        int sPtr = input.length() - 1;
+        final String input = "abcdeabbbbbafkjada";
+        int ptr1 = 0;
+        int ptr2 = input.length() - 1;
         String largestSubSeq = "";
         String iterStr = "";
-        while (fPtr < sPtr) {
-            if ((iterStr = isPalindrome(input, fPtr, sPtr)) != null) {
+        while (ptr1 < ptr2) {
+            if ((iterStr = isPalindrome(input, ptr1, ptr2)) != null) {
                 if (largestSubSeq.length() <= iterStr.length()){
                     largestSubSeq = iterStr;
                 }
             }
-            if (--sPtr == fPtr) {
-                ++fPtr;
-                sPtr = input.length() - 1;
-            } else if (fPtr == input.length() - 1) {
+            if (--ptr2 == ptr1) {
+                ++ptr1;
+                ptr2 = input.length() - 1;
+            } else if (ptr1 == input.length() - 1) {
                 break;
             }
         }

@@ -58,15 +58,15 @@ public class Sort012 {
 
     public static void main(String[] args) throws IOException {
         String inputLine[] = null;
-        int n = 5;
-        int arr[] = new int[n];
+        int[] arr;
         if (args.length > 0) {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             int t = Integer.parseInt(br.readLine().trim()); //Inputting the testcases
             while (t-- > 0) {
                 inputLine = br.readLine().trim().split(" ");
             }
-            for (int i = 0; i < n; i++) {
+            arr = new int[args.length];
+            for (int i = 0; i < args.length; i++) {
                 arr[i] = Integer.parseInt(inputLine[i]);
             }
         } else {
@@ -74,7 +74,7 @@ public class Sort012 {
         }
 
         Solution ob = new Solution();
-        ob.sort012(arr, n);
+        ob.sort012(arr, arr.length);
         System.out.println(Arrays.toString(arr));
     }
 }

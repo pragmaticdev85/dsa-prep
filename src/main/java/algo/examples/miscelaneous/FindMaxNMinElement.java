@@ -1,8 +1,6 @@
 package algo.examples.miscelaneous;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.ToString;
+import lombok.*;
 
 public class FindMaxNMinElement {
     public static MaxMinEl get(int[] arr) {
