@@ -9,7 +9,8 @@ public class FindIntersectionOfTwoSortedArrays {
         int arrTwoPtr = 0;
         while (arrOnePtr < arrayOne.length && arrTwoPtr < arrayTwo.length) {
             if (arrayOne[arrOnePtr] == arrayTwo[arrTwoPtr]) {
-                System.out.print(arrayOne[arrOnePtr++] + " ");
+                System.out.print(arrayOne[arrOnePtr] + " ");
+                ++arrOnePtr;
                 ++arrTwoPtr;
             } else if (arrayOne[arrOnePtr] > arrayTwo[arrTwoPtr]) {
                 ++arrTwoPtr;
@@ -17,5 +18,6 @@ public class FindIntersectionOfTwoSortedArrays {
                 ++arrOnePtr;
             }
         }
+        System.out.println();
     }
 }

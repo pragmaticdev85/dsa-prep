@@ -1,6 +1,5 @@
 package algo.examples.fastnslowpointers;
 
-
 public class DetectCyclesInLinkedList {
     public static boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {

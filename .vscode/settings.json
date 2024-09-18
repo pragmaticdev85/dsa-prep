@@ -1,0 +1,9 @@
+{
+    "java.configuration.runtimes": [
+        {
+            "default": true,
+            "path": "/home/shnmkhk/.sdkman/candidates/java/current",
+            "name": "JavaSE-17"
+        }
+    ]
+}
