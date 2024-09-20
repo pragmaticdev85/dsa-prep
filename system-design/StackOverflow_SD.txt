@@ -1,0 +1,111 @@
+Requirements:
+
+- Every user (of any role) should be able to create questions & add the answers/ reply to answers of user's questions
+- Every user should be able to create a blog and publish articles into it
+- Each question or answer can include both text and media (image or video)
+
+System entities:
+
+- User
+id: long
+username: varchar(32)
+fullName: varchar(128)
+created_by: long (FK: User:id)
+created_on: datetime
+updated_on: datetime
+
+- Role
+id:long
+name:varchar
+
+- User_Role_XRef
+id: long
+user_id: long (FK: User:id)
+role_id: long (FK: Role:id)
+
+- Question/ Thread
+id: long
+title: varchar(1024)
+description: CLOB
+created_by: long (FK: User:id)
+created_on: datetime
+updated_on: datetime
+
+- Answer
+id: long
+question_id: long (FK: Question:id)
+created_by: long (FK: User:id)
+created_on: datetime
+updated_on: datetime
+
+- Blog
+id: long
+name: varchar(128)
+user_id: long (FK: User:id)
+
+- Article
+id: long
+title: varchar(128)
+description: varchar(128)
+blog_id: long (FK: Blog:id)
+
+- Comment
+parent_entity_type: ARTICLE/ ANSWER/ COMMENT
+parent_entity_id: long (Non null id)
+text: CLOB
+created_by: long (FK: User:id)
+created_on: datetime
+updated_on: datetime
+
+
+Estimation:
+
+Storage:
+Ready heavy use case
+Write less 
+
+
+Users (Microservice) -> 3 Pods
+QA -> 7-9 Pods
+
+20k * 60 * 24
+1k * 60 * 24 -> Writes
+19k * 60 * 24 -> Reads
+
+Apache RabbitMQ/ Kafka
+NoSQL (Mongo or Cassandra)
+
+API layer with NodeJS + Express JS or Java/ Spring-boot
+UI layer with React/ Angular
+
+Media Server (Apache HTTPD/ Nginx)
+- Upload
+- Download
+
+System Interface Definitions:
+- Upload-and-generate-perm-link/ Download (POST/ PUT/ GET/ DELETE)
+- Create_a_question (RequestBody application/json)
+- Answer_to_an_existing_question
+- Adding_comment_to_an_answer
+
+High-level-design:
+- Creating block/ component flow diagrams
+
+Low-level-design:
+- Class diagrame
+- Choice of the additional libraries/ frameworks
+- N-layer architecture
+Web/ Presentation layer [Validating the payload, delegating the DTO objects to service layer]
+
+Service layer [RabbitMQ & Internal API calls among the microserivces + Business-logic]
+
+DAO/ Persistence layer [Repository CRUD and extended DB operations]
+
+DB Layer
+
+
+Unit-testing, Integration-testing and E2E testing 
+
+- Response Caching (Gzip/ Deflate)
+- Making use of efficient db connection pool
+- Opentelemetry for each microservice, Elastic APM agent + Elastic Search/ ELK for monitoring alerts
