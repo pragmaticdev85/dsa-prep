@@ -1,7 +1,6 @@
 package algo.examples.miscelaneous;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FibonacciDemo {
@@ -11,7 +10,7 @@ public class FibonacciDemo {
         List<Integer> list = new ArrayList<>();
         list.add(0);
         list.add(1);
-        int prevVal = list.get(0) + list.get(1);
+        int prevVal = 0;
         while (ix < 30) {
             prevVal = list.get(ix - 1) + list.get(ix - 2);
             list.add(prevVal);
